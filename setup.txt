@@ -1,0 +1,6 @@
+% # Download Anaconda with https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html
+% conda config --set auto_activate_base false
+% conda create -n qiskit-ray python=3.8
+% conda activate qiskit-ray
+% python -m pip install astropy joblib matplotlib numpy pandas poliastro==0.14.0 pyarrow scikit-learn spacetrack TLE-tools tqdm xgboost
+% python src/main.py
