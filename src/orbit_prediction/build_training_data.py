@@ -68,6 +68,7 @@ def predict_orbit(window):
     # Predict the state vectors for each of the rows in the "future"
     predicted_orbits = orbit_model.predict([elapsed_seconds.to_numpy()])
     future_rows[physics_cols] = predicted_orbits[0]
+
     return future_rows
 
 
@@ -97,8 +98,7 @@ def predict_orbits(df, last_n_days, n_pred_days):
     window_cols = ['aso_id', pd.Grouper(freq=pred_window_length)]
     windows = [w[1] for w in epoch_df.groupby(window_cols)]
     # Predict the orbits in each window in parallel
-    window_dfs = Parallel(n_jobs=-1)(delayed(predict_orbit)(w)
-                                     for w in tqdm(windows))
+    window_dfs = Parallel(n_jobs=-1)(delayed(predict_orbit)(w) for w in tqdm(windows))
     # Join all of the window prediction DataFrames into a single DataFrame
     physics_pred_df = pd.concat(window_dfs).reset_index(drop=True)
     return physics_pred_df
