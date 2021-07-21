@@ -8,8 +8,8 @@ from sklearn.multioutput import MultiOutputRegressor
 
 import pandas as pd
 
-SPACETRACK_USERNAME='dillan@ibm.com'
-SPACETRACK_PASSWORD='jaWZtb7Ba6BkKU3b'
+SPACETRACK_USERNAME=''
+SPACETRACK_PASSWORD=''
 
 def main():
     ## Importing ISS data
