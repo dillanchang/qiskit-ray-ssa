@@ -91,12 +91,6 @@ def main():
     X_test_gram  = q_kernel.calc_gram(X_test,X_train)
     np.save('./data/quantum/X_test_gram_1_rep_0_bit_scale_08.npy',X_test_gram)
 
-    # Calculating Gram matrix using linear kernel
-    X_train_gram = c_kernel.calc_lin_gram(X_train,X_train)
-    np.save('./data/classical/X_train_lin.npy',X_train_gram)
-    X_test_gram  = c_kernel.calc_lin_gram(X_test,X_train)
-    np.save('./data/classical/X_test_lin.npy',X_test_gram)
-
     # Fitting Gram matrix using support vector regression
     X_train_gram = np.load('./data/quantum/X_train_gram_1_rep_0_bit_scale_08.npy')
     X_test_gram  = np.load('./data/quantum/X_test_gram_1_rep_0_bit_scale_08.npy' )
